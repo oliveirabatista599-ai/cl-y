@@ -1,1 +1,89 @@
 index.html
+export default function ArenaBattleGame() {
+  const cards = [
+    { name: 'Knight', cost: 3, attack: 4, hp: 10 },
+    { name: 'Archer', cost: 2, attack: 3, hp: 5 },
+    { name: 'Golem', cost: 5, attack: 7, hp: 15 },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-sky-400 to-green-400 p-6 text-white">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-5xl font-extrabold text-center mb-6 drop-shadow-lg">
+          Arena Battle
+        </h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-white/20 backdrop-blur-md rounded-3xl p-4 shadow-2xl">
+            <h2 className="text-2xl font-bold mb-2">Sua Torre</h2>
+
+            <div className="h-40 rounded-2xl bg-stone-700 flex items-center justify-center text-3xl font-bold">
+              🏰 2500 HP
+            </div>
+          </div>
+
+          <div className="bg-white/20 backdrop-blur-md rounded-3xl p-4 shadow-2xl flex items-center justify-center">
+            <div className="text-center">
+              <p className="text-xl font-semibold">Energia</p>
+
+              <div className="text-5xl font-extrabold mt-2">
+                10
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white/20 backdrop-blur-md rounded-3xl p-4 shadow-2xl">
+            <h2 className="text-2xl font-bold mb-2">
+              Torre Inimiga
+            </h2>
+
+            <div className="h-40 rounded-2xl bg-red-700 flex items-center justify-center text-3xl font-bold">
+              🏰 2500 HP
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-black/20 rounded-3xl p-6 shadow-2xl">
+          <h2 className="text-3xl font-bold mb-4">
+            Cartas
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {cards.map((card) => (
+              <div
+                key={card.name}
+                className="bg-white text-black rounded-2xl p-4 shadow-xl hover:scale-105 transition-transform"
+              >
+                <h3 className="text-2xl font-bold mb-2">
+                  {card.name}
+                </h3>
+
+                <p>⚔️ Ataque: {card.attack}</p>
+                <p>❤️ Vida: {card.hp}</p>
+                <p>💎 Custo: {card.cost}</p>
+
+                <button className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl font-bold transition-colors">
+                  Invocar
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 bg-white/20 rounded-3xl p-6 shadow-2xl">
+          <h2 className="text-3xl font-bold mb-4">
+            Como Expandir
+          </h2>
+
+          <ul className="space-y-3 text-lg list-disc list-inside">
+            <li>Adicionar multiplayer online</li>
+            <li>Criar IA inimiga</li>
+            <li>Adicionar animações</li>
+            <li>Adicionar novas cartas</li>
+            <li>Implementar ranking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
